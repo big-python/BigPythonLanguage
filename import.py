@@ -1,1 +1,1 @@
-import CommonFunction.add
+print "文件操作"
