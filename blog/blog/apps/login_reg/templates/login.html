@@ -1,0 +1,12 @@
+<html>
+<head>
+    <title>登陆</title>
+</head>
+    <h1>用户登陆</h1><br>
+    <form action="/doLogin/" method="post">
+        {% csrf_token %}
+        username:<input type="text" name="username"><br>
+        password:<input type="password" name="password"><br>
+        <input type="submit" value="signin">
+    </form>
+</html>

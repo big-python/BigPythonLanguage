@@ -1,0 +1,12 @@
+<html>
+<head>
+    <title>注册</title>
+</head>
+    <h1>用户注册</h1><br>
+    <form action="/doReg/" method="post">
+        {% csrf_token %}
+        new username:<input type="text" name="username"><br>
+        new password:<input type="password" name="password"><br>
+        <input type="submit" value="signin">
+    </form>
+</html>
