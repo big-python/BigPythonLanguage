@@ -38,6 +38,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'blog.apps.login_reg',
     'blog.apps.bob',
+    'blog.apps.info',
+    'blog.models'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -73,7 +75,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
@@ -85,4 +87,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
+
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+
+    # using "/static/js/xx.js" for open static files
+
+    os.path.join(os.path.dirname(__file__), 'static').replace('\\','/'),
+
+)

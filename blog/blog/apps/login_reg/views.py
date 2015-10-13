@@ -3,8 +3,10 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.template import RequestContext
 import hashlib
-from blog.apps.login_reg.models import userInfo
-from django.db import connection
+import datetime
+import time
+# from blog.apps.login_reg.models import userInfo
+from blog.models.models.user_models import userInfo
 #登陆的页面展示
 def login(request):
     #使用post方式提交时需要注意
@@ -45,9 +47,10 @@ def doReg(request):
     md5 = hashlib.md5();
     md5.update(password);
     true_pass = md5.hexdigest();
-
+    add_time = datetime.datetime.now();
+    add_time = time.mktime(add_time.timetuple())
     #然后进行插入数据库操作
-    user = userInfo.objects.create(username=username,password=true_pass);
+    user = userInfo.objects.create(username=username,password=true_pass,sex=1,add_time=add_time);
     if user:
         return render(request,'regSuccess.html',{'username':username});
     else:

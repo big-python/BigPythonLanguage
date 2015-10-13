@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>修改用户</title>
+    </head>
+        <body>
+            <form action="/doUserModify/" method="post">
+                {% csrf_token %}
+                用户：<input type="text" name="username" value="{{ user.username }}"><br>
+                性别：<select name="sex" id="sex">
+                    <option value="0">男</option>
+                    <option value="1">女</option>
+                </select><br>
+                手机：<input type="text" name="telephone" value="{{ user.telephone }}"><br>
+                邮箱：<input type="text" name="email" value="{{ user.email }}"><br>
+                <input type="hidden" name="id" value="{{ user.id }}">
+                <input type="submit" value="确认修改">
+            </form>
+        </body>
+    <script src="/static/js/jquery-1.7.2.min.js"></script>
+    <script>
+        $('#sex option[value="{{ user.sex }}"]').attr('selected','true');
+    </script>
+
+</html>
