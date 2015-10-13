@@ -1,15 +1,14 @@
 from django.conf.urls import patterns, include, url
 
 from django.contrib import admin
-
+import settings
 admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'blog.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
-
-
+    #url(r'^static/(?P<path>.*)$','django.views.static.serve',{'document_root':settings.STATIC_PATH}),
     url(r'^bob/$', 'blog.apps.bob.views.index', name='bob'),
     url(r'^login/$', 'blog.apps.login_reg.views.login', name='login_reg'),
     url(r'^doLogin/$','blog.apps.login_reg.views.doLogin',name='doLogin'),
